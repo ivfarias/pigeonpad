@@ -1,5 +1,5 @@
 //> This file contains all logic for managing the filesystem
-//  backed database of Codeframe files.
+//  backed database of Pigeon's Nest files.
 
 const fs = require('fs');
 const path = require('path');
@@ -8,7 +8,7 @@ const zlib = require('zlib');
 
 const config = require('../config.js');
 
-//> These files are Codeframe files that must be ensured to exist
+//> These files are Pigeon's Nest files that must be ensured to exist
 //  in the database with every deploy, since they're used in demos
 //  on the home page. These are checked for existence later.
 const STARTER_FIXTURES = [
@@ -38,7 +38,7 @@ const hashFile = contents => {
 }
 
 //> `SourceFileStore` is the database that manages the app's communication
-//  with the filesystem-backed storage for Codeframe files. For efficiency of data in storage,
+//  with the filesystem-backed storage for Pigeon's Nest files. For efficiency of data in storage,
 //  we compress files stored here with gzip for on-disk storage.
 class SourceFileStore {
 

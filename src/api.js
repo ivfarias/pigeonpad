@@ -1,13 +1,13 @@
-//> This file defines the few Codeframe-internal API endpoints
+//> This file defines the few Pigeon's Nest-internal API endpoints
 
-const {store} = require('./models.js');
+const { store } = require('./models.js');
 
 //> This is the object that will contain all API methods for frames.
 const api = {
     frame: {},
 }
 
-//> `frame.get` allows to get a Codeframe file, given a hash
+//> `frame.get` allows to get a Pigeon's Nest file, given a hash
 api.frame.get = params => {
     return store.getFromFS(params.frameHash);
 }
@@ -18,7 +18,7 @@ api.frame.post = async (_params, _query, body) => {
     return frameHash;
 }
 
-//> `frame.getPage` renders a full Codeframe page from two hashes, one for
+//> `frame.getPage` renders a full Pigeon's Nest page from two hashes, one for
 //  each of HTML and JS files. This is the "preview" page.
 api.frame.getPage = async params => {
     const htmlFrame = await store.getFromFS(params.htmlFrameHash);
@@ -28,7 +28,7 @@ api.frame.getPage = async params => {
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
-        <title>Live Frame | Codeframe</title>
+        <title>Live Frame | Pigeon's Nest</title>
     </head>
     <body>
         ${htmlFrame}
