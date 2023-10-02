@@ -1145,7 +1145,7 @@ class Workspace extends StyledComponent {
                     <a class="button" href="/">Pigeonaut</a>
                 </div>
                 <nav>
-                    <a class="button newButton" href="/new?from=editor">
+                    <a class="button newButton" href="/editor?from=editor">
                         + New <span class="mobile-hidden">pad</span>
                     </a>
                     <a class="button tiny-hidden" href="https://pigeonaut.io/" target="_blank">
@@ -1205,7 +1205,7 @@ class App extends StyledComponent {
                     break;
                 case 'welcome':
                     //> This is a predetermined URL that points to the welcome.
-                    router.go('/f/70e01d7b93cf/e3b0c44298fc.html/edit', { replace: true });
+                    router.go('/h/34257cad6ac3/j/e3b0c44298fc/edit', { replace: true });
                     break;
                 default:
                     {
