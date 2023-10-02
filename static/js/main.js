@@ -1205,7 +1205,7 @@ class App extends StyledComponent {
                     break;
                 case 'welcome':
                     //> This is a predetermined URL that points to the welcome.
-                    router.go('https://app.pigeonaut.io/f/70e01d7b93cf/e3b0c44298fc.html/edit', { replace: true });
+                    router.go('/h/70e01d7b93cf/j/e3b0c44298fc/edit', { replace: true });
                     break;
                 default:
                     {
