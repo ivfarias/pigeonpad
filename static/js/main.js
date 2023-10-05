@@ -1206,7 +1206,7 @@ class App extends StyledComponent {
                     break;
                 case 'welcome':
                     //> This is a predetermined URL that points to the welcome Pigeonpad.
-                    router.go('/h/34257cad6ac3/j/e3b0c44298fc/edit', { replace: true });
+                    router.go('/f/d6d40c3cd33b/e3b0c44298fc.html/edit', { replace: true });
                     break;
                 default:
                     {
