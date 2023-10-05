@@ -1148,11 +1148,11 @@ class Workspace extends StyledComponent {
                     <a class="button newButton" href="/new?from=editor">
                         + New <span class="mobile-hidden">Pigeonpad</span>
                     </a>
-                    <a class="button tiny-hidden" href="https://pigeonaut.io" target="_blank">
-                        <span class="mobile-hidden">Find inspiration
+                    <a class="button tiny-hidden" href="https://pigeonaut.io/" target="_blank">
+                        Find inspiration
                     </a>
                     <a class="button" href="mailto:hey@pigeonaut.io" target="_blank">
-                        Get help
+                        Get support
                     </a>
                 </nav>
             </header>
