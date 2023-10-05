@@ -11,7 +11,8 @@
   <link rel="icon" type="image/png" href="/static/assets/favicon-32x32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="/static/assets/favicon-16x16.png" sizes="16x16" />
 
-
+  <!-- g analytics -->
+  <script async src=""></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     window.ga = window.ga || null;
@@ -34,11 +35,17 @@
 <body>
   <header>
     <div class="logo">
-      <a class="button" href="/">Pigeonaut</a>
+      <a class="button" href="/">Pigeonpad</a>
     </div>
     <nav>
-      <a class="button newButton" href="/editor?from=index">
-        +&nbsp;New <span class="mobile-hidden">pad</span>
+      <a class="button newButton" href="/new?from=index">
+        +&nbsp;New <span class="mobile-hidden">Pad</span>
+      </a>
+      <a class="button tiny-hidden" href="https://pigeonaut.io" target="_blank">
+        Find inspiration
+      </a>
+      <a class="button" href="mailto:hey@pigeonaut.io" target="_blank">
+        Support
       </a>
     </nav>
   </header>
@@ -46,25 +53,25 @@
   <section class="hero">
     <div class="textOverlay">
       <h1 class="pretag">
-        Welcome to the Pigeonaut.
+        Welcome to Pigeonpad.
       </h1>
       <div class="tagline">
         Filthy simple editor for mini-pages and email templates.
       </div>
       <div class="ctaButtons">
         <a href="/welcome?from=tagline" class="button active startButton">Start creating&nbsp;→</a>
-        <a href="/#howItWorks" class="button">How it works</a>
+        <a href="#howItWorks" class="button">How it works</a>
       </div>
 
-      <h2>Try it now!</h2>
+      <h2>Try it live!</h2>
       <p>
         This is a pad, our take on editors. This is where ideas hatch. Change the HTML, CSS, or JavaScript code on the
         right
-        to see the changes pop on the left.
+        to see the changes pop on the left
       </p>
       <div class="liveEditorContainer fixed button">
-        <!-- Update this later to be a simple but intuitive demo of Pigeonaut -->
-        <iframe src="/f/70e01d7b93cf/e3b0c44298fc.html/edit" frameborder="0" class="liveEditor"></iframe>
+        <!-- Update this later to be a simple but intuitive demo of Pigeonpad -->
+        <iframe src="/welcome?from=trial" frameborder="0" class="liveEditor"></iframe>
       </div>
     </div>
   </section>
@@ -87,7 +94,7 @@
           </p>
         </div>
         <div class="item fixed button">
-          <h3>Sharing is easy</h3>
+          <h3>Share like your mamma taught you to</h3>
           <p>
             Each pad gets a <strong>unique link</strong>. It's like a secret handshake, but digital. Share that
             link with your pals, your mom, or your weird uncle who thinks HTML is a new type of liberal propaganda –
@@ -109,9 +116,10 @@
     <div class="textOverlay">
       <h2>Starter Templates</h2>
 
-      <h3>Intro to mini-pages</h3>
+      <h3>Intro to HTML + CSS</h3>
       <p>
-        Just getting introduced to the web with HTML or CSS? Mini-pages are a great place to get a lay of the land.
+        Just getting introduced to the web with HTML or CSS? Start here with
+        projects that use HTML and CSS to build simple webpages.
       </p>
       <div class="triple">
         <a class="item button" href="/h/7e283db47a3a/j/e1b1d24421ef/edit?from=catalog">
@@ -136,14 +144,14 @@
           <p>
             Flexbox is a modern CSS feature that makes it simple to create row
             or column layouts on the page. Read through this little introduction
-            to CSS flexbox and experiment with the feature right in the Pigeonaut.
+            to CSS flexbox and experiment with the feature right in the Pigeonpad.
           </p>
         </a>
         <a class="item button" href="/h/3de6e5504f25/j/e3b0c44298fc/edit?from=catalog">
           <h3>Button Hover Effects</h3>
           <p>
             CSS, transitions, and animations give us a lot of tools to make
-            our UI elements interactive and lively. This Pigeonaut shows a few
+            our UI elements interactive and lively. This Pigeonpad shows a few
             interactive effects you can add to buttons as you hover over them
             and click on them.
           </p>
@@ -153,7 +161,7 @@
           <p>
             CSS filters are a new feature that, alongside box shadows, can add
             a bit of flair to your web design easily. Explore how to work with
-            CSS filters and shadows in this little Pigeonaut.
+            CSS filters and shadows in this little Pigeonpad.
           </p>
         </a>
       </div>

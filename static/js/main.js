@@ -1,4 +1,4 @@
-//> ## Pigeonaut's pad component
+//> ## Pigeonpad's editor component
 
 const {
     StyledComponent,
@@ -16,7 +16,7 @@ const cfFetch = (uri, options) => {
 }
 
 //> This `api` object provides some utility methods we use to fetch
-//  and push stuff to and from the Pigeonauts internal API.
+//  and push stuff to and from the Pigeonpad internal API.
 const api = {
     get: path => cfFetch(`/api${path}`, {
         method: 'GET',
@@ -25,7 +25,7 @@ const api = {
         method: 'POST',
         body: body,
     }),
-    errlog: e => console.error(`Pigeonaut API error:\n\t${e}`),
+    errlog: e => console.error(`Pigeonpad API error:\n\t${e}`),
 }
 
 //> Debounce coalesces multiple calls to the same function in a short
@@ -50,7 +50,7 @@ const debounce = (fn, delayMillis) => {
 }
 
 //> The `PreviewPane`  is the half-screen pane that shows a preview of the
-//  rendered pad, alongside the URL and refresh buttons.
+//  rendered Pigeonpad, alongside the URL and refresh buttons.
 class PreviewPane extends StyledComponent {
 
     init(frameRecord) {
@@ -202,7 +202,7 @@ class PreviewPane extends StyledComponent {
     }
 
     compose(data) {
-        //> If we're not rendering from a saved pad from the server but instead rendering
+        //> If we're not rendering from a saved Pigeonpad from the server but instead rendering
         //  a "live" preview, generate a data URI instead and point the iframe to that. Otherwise,
         //  just use the URL to the saved preview.
         let url = '';
@@ -256,8 +256,8 @@ const loadScript = url => {
 
 //> ## Editor implementations
 
-//> Pigeonaut uses multiple different editor backends (`EditorCore` implementations)
-//  to implement the actual code editor part of Pigeonaut. This is because...
+//> Pigeonpad uses multiple different editor backends (`EditorCore` implementations)
+//  to implement the actual code editor part of Pigeonpad. This is because...
 //
 //  1. It reduces reliance on one particular third-party editor.
 //  2. It creates an interface under which new editor backends can be added / experimented with.
@@ -273,7 +273,7 @@ class MonacoEditor {
     constructor(callback) {
         this.mode = 'html';
 
-        //> Frames are temporary storage of loaded / saved Pigeonaut source files
+        //> Frames are temporary storage of loaded / saved Pigeonpad source files
         //  before the editor itself has been loaded and initialized.
         this.frames = {
             html: '',
@@ -644,7 +644,7 @@ class Editor extends StyledComponent {
 
     fetchFrames(data) {
         //> `fetchFrames` is in charge of (1) determining based on new data whether we need to
-        //  re-fetch HTML and JS files for the current version of the Pigeonaut (or if we have it already)
+        //  re-fetch HTML and JS files for the current version of the Pigeonpad (or if we have it already)
         //  and making those requests and saving the results to the view state. We are careful here
         //  to first check if the frames we are looking to fetch aren't the ones already saved in the editor.
         if (
@@ -727,7 +727,7 @@ class Editor extends StyledComponent {
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
-        <title>Live pad | Pigeonaut</title>
+        <title>Live Frame | Pigeonpad</title>
     </head>
     <body>
         ${this.core.getValue('html')}
@@ -759,7 +759,7 @@ class Editor extends StyledComponent {
         gevent('editor', 'settings.asyoutype', this.settings.asYouTypeEnabled.toString());
     }
 
-    //> `saveFrames` handles saving / persisting pigeonaut files to the backend service,
+    //> `saveFrames` handles saving / persisting Pigeonpad files to the backend service,
     //  and returns a promise that resolves only once all frame files have been saved.
     async saveFrames() {
         const hashes = {
@@ -940,7 +940,7 @@ class Editor extends StyledComponent {
                 <div class="buttonGroup">
                     <button class="button ${this.settings.visible ? 'active' : ''}" title="Show additional settings"
                         onclick="${this.toggleSettings}">...</button>
-                    <button class="button" title="Save and reload preview"
+                    <button class="button" title="Save Pad and reload preview"
                         onclick="${this.saveFrames}">Save ${'&'} Remix</button>
                 </div>
             </div>
@@ -964,9 +964,9 @@ class Editor extends StyledComponent {
 
 }
 
-//> The `Workspace` component is the "Pigeonaut editor". That is to say,
+//> The `Workspace` component is the "Pigeonpad editor". That is to say,
 //  this is the component that wraps everything into a neat, interactive page
-//  and is the backbone of the Pigeonaut editing experience.
+//  and is the backbone of the Pigeonpad editing experience.
 class Workspace extends StyledComponent {
 
     init(frameRecord) {
@@ -986,7 +986,7 @@ class Workspace extends StyledComponent {
 
         window.addEventListener('beforeunload', evt => {
             if (this.record.get('liveRenderMarkup') !== null) {
-                evt.returnValue = 'You have unsaved changes to your pad. Are you sure you want to leave?';
+                evt.returnValue = 'You have unsaved changes to your Pigeonpad. Are you sure you want to leave?';
             }
         });
     }
@@ -1142,17 +1142,17 @@ class Workspace extends StyledComponent {
             onmouseup="${this.grabDragging ? this.handleGrabMouseup : ''}">
             <header>
                 <div class="logo">
-                    <a class="button" href="/">Pigeonaut</a>
+                    <a class="button" href="/">Pigeonpad</a>
                 </div>
                 <nav>
-                    <a class="button newButton" href="/editor?from=editor">
-                        + New <span class="mobile-hidden">pad</span>
+                    <a class="button newButton" href="/new?from=editor">
+                        + New <span class="mobile-hidden">Pigeonpad</span>
                     </a>
-                    <a class="button tiny-hidden" href="https://pigeonaut.io/" target="_blank">
-                        <span class="mobile-hidden">Find inspiration</span>
+                    <a class="button tiny-hidden" href="https://thesephist.com/" target="_blank">
+                        <span class="mobile-hidden">Made by</span> @thesephist
                     </a>
-                    <a class="button" href="mailto:hey@pigeonaut.io" target="_blank">
-                        <span class="mobile-hidden">Support</span>
+                    <a class="button" href="https://github.com/thesephist/Pigeonpad" target="_blank">
+                        <span class="mobile-hidden">View Source on</span> GitHub
                     </a>
                 </nav>
             </header>
@@ -1204,8 +1204,8 @@ class App extends StyledComponent {
                     });
                     break;
                 case 'welcome':
-                    //> This is a predetermined URL that points to the welcome.
-                    router.go('/h/70e01d7b93cf/j/e3b0c44298fc/edit', { replace: true });
+                    //> This is a predetermined URL that points to the welcome Pigeonpad.
+                    router.go('/h/34257cad6ac3/j/e3b0c44298fc/edit', { replace: true });
                     break;
                 default:
                     {
@@ -1226,7 +1226,7 @@ class App extends StyledComponent {
                     //> When we redirect some URL right on page load, we want that new URL
                     //  to _replace_ the old, given URL value, not append a new history entry.
                     //  So replace the history entry, not append. In this case, we redirect to
-                    //  the URL of an empty
+                    //  the URL of an empty Pigeonpad
                     router.go(`/h/e3b0c44298fc/j/e3b0c44298fc/edit`, { replace: true });
                     break;
             }

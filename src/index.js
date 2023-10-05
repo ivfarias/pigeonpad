@@ -62,7 +62,7 @@ for (const [uri, path] of Object.entries(STATIC_PATHS)) {
 app.use('/static', express.static('static'));
 
 //> Easily redirect `/f/*.html/edit` to an editor view
-//  to edit statically rendered Pigeon's Nests by just appending `/edit` to the URL.
+//  to edit statically rendered pigeonpads by just appending `/edit` to the URL.
 app.get('/f/:htmlFrameHash/:jsFrameHash.html/edit', (req, res) => {
     res.redirect(302, `/h/${req.params.htmlFrameHash}/j/${req.params.jsFrameHash}/edit`);
 });
@@ -115,5 +115,5 @@ app.use((_req, res) => respondWith(res, '404.html'));
 
 app.listen(
     config.PORT,
-    () => console.log(`Pigeonaut running on localhost:${config.PORT}`),
+    () => console.log(`pigeonpad running on localhost:${config.PORT}`),
 );

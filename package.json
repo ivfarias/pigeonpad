@@ -1,10 +1,10 @@
 {
-  "name": "pigeonaut",
-  "version": "0.0.1",
-  "description": "A filthy simple way to create mini-sites and email templates.",
+  "name": "codeframe",
+  "version": "0.1.0",
+  "description": "The fastest, easiest way to build and deploy quick static webpages",
   "main": "src/index.js",
-  "repository": "git@github.com:ivfarias/pigeonaut.git",
-  "author": "Ivan Farias hey@pigeonaut.io",
+  "repository": "git@github.com:thesephist/codeframe.git",
+  "author": "Linus Lee <linus@thesephist.com>",
   "license": "MIT",
   "scripts": {
     "start": "node src/index.js",
